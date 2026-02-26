@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TabVault</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="2" y="4" width="16" height="12" rx="2" stroke="#6EE7B7" stroke-width="1.5"/>
+          <path d="M6 4V3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1" stroke="#6EE7B7" stroke-width="1.5"/>
+          <path d="M7 9h6M7 12h4" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">TabVault</span>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="openOptions" title="Settings">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="2.5" stroke="#9CA3AF" stroke-width="1.5"/>
+            <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Tab counter bar -->
+    <div class="tab-status">
+      <span class="tab-count-badge">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <rect x="1" y="2" width="10" height="8" rx="1.5" stroke="#6EE7B7" stroke-width="1.2"/>
+          <rect x="3" y="1" width="6" height="2" rx="1" fill="#6EE7B7"/>
+        </svg>
+        <span id="currentTabCount">0</span> tabs open
+      </span>
+      <span class="session-count-badge" id="sessionCountBadge">0 saved</span>
+    </div>
+
+    <!-- Save Panel -->
+    <div class="save-panel" id="savePanel">
+      <input type="text" class="session-name-input" id="sessionName" placeholder="Session name..." maxlength="60">
+      <div class="tags-row">
+        <input type="text" class="tags-input" id="tagsInput" placeholder="Tags: work, research..." maxlength="100">
+      </div>
+      <textarea class="notes-input" id="notesInput" placeholder="Notes (optional)..." rows="2" maxlength="300"></textarea>
+      <div class="save-actions">
+        <button class="btn btn-secondary" id="cancelSave">Cancel</button>
+        <button class="btn btn-primary" id="confirmSave">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Save Session
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick save button -->
+    <div class="quick-save" id="quickSave">
+      <button class="btn btn-primary btn-full" id="showSavePanel">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Save Current Tabs
+      </button>
+    </div>
+
+    <!-- Sessions List -->
+    <div class="sessions-section">
+      <div class="section-header">
+        <span class="section-title">Saved Sessions</span>
+        <div class="search-wrap">
+          <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+        </div>
+      </div>
+
+      <div class="sessions-list" id="sessionsList">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="8" width="24" height="18" rx="3" stroke="#374151" stroke-width="2"/>
+              <path d="M10 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2" stroke="#374151" stroke-width="2"/>
+              <path d="M12 16h8M12 20h5" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="empty-title">No sessions yet</p>
+          <p class="empty-sub">Save your open tabs to get started</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

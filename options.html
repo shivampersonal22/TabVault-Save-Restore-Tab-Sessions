@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TabVault Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#6EE7B7" stroke-width="1.8"/>
+          <path d="M8 5V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1" stroke="#6EE7B7" stroke-width="1.8"/>
+          <path d="M8 11h8M8 14.5h5" stroke="#6EE7B7" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <h1 class="logo-title">TabVault <span>Settings</span></h1>
+      </div>
+      <p class="version">v1.0.0</p>
+    </header>
+
+    <main class="content">
+      <div class="card">
+        <h2 class="card-title">Auto-Save</h2>
+        <p class="card-desc">Automatically save your current tabs on a schedule.</p>
+        <div class="setting-row">
+          <label class="toggle-label" for="autoSaveToggle">
+            <span>Enable Auto-Save</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="autoSaveToggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="setting-row" id="intervalRow">
+          <label for="intervalSelect">Save every</label>
+          <select id="intervalSelect" class="select">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="120">2 hours</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">Storage</h2>
+        <div class="setting-row">
+          <label for="maxSessions">Max saved sessions</label>
+          <select id="maxSessions" class="select">
+            <option value="20">20</option>
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+          </select>
+        </div>
+        <div class="storage-info" id="storageInfo">
+          <span id="sessionCount">0 sessions saved</span>
+          <span class="storage-size" id="storageSize">Calculating…</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">Data</h2>
+        <p class="card-desc">Export or clear your saved sessions.</p>
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="exportBtn">Export JSON</button>
+          <button class="btn btn-danger" id="clearAllBtn">Clear All Sessions</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">About</h2>
+        <p class="card-desc">TabVault – Never lose your tabs again. Built with ❤️ by an indie developer.</p>
+        <div class="links">
+          <a href="https://github.com" target="_blank" class="link">GitHub</a>
+          <a href="mailto:support@tabvault.dev" class="link">Support</a>
+        </div>
+      </div>
+    </main>
+
+    <div class="toast" id="toast"></div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
